@@ -1,0 +1,7 @@
+services:
+  blog:
+    build: .
+    container_name: tase-blog
+    restart: unless-stopped
+    ports:
+      - "8080:80"
