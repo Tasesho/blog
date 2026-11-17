@@ -2,6 +2,13 @@
 
 Blog personal/devlog minimalista, filesystem-first y self-hosted.
 
+> [!NOTE]
+> Blog URL: [blog.tasedev.me](https://blog.tasedev.me)
+>
+> All entries are written manually by me and describe my own experiences. I use AI to check spelling, grammar, and vocabulary mistakes so the writing is easier for everyone to understand. Since I am not a Markdown expert, I also use AI to recommend where certain elements—such as tables and `NOTE`, `WARNING`, or `IMPORTANT` tags—could improve my essays.
+>
+> Thanks for your understanding.
+
 ## Idea
 
 - HTML, CSS y JavaScript puro.

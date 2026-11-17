@@ -35,3 +35,6 @@ desktop.ini
 *.tmp
 *.bak
 *.old
+
+# Local style notes
+styles.md
