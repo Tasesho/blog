@@ -1,29 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
 
+
 :root {
   color-scheme: dark;
   /* Paleta Vaporwave / Minimalismo Técnico */
-  --bg: #0a0612;          /* Púrpura muy oscuro, casi negro */
-  --panel: #120c1f;       /* Fondo de tarjetas y contenedores */
-  --panel-soft: #1a122c;  /* Hover en paneles */
-  --ink: #f5f3f7;         /* Texto principal brillante */
-  --soft-ink: #c3b9d2;    /* Texto secundario */
-  --muted: #6e6382;       /* Texto apagado / metadatos */
-  --line: #2d1f47;        /* Bordes sutiles */
-  --line-strong: #493273; /* Bordes enfocados */
-  
-  /* Acentos Vaporwave */
-  --accent: #00f0ff;      /* Cian eléctrico */
-  --accent-neon: #ff007f; /* Rosa/Magenta neón */
+  --bg: #0a0612;
+  --panel: #120c1f;
+  --panel-soft: #1a122c;
+
+  --ink: #f5f3f7;
+  --soft-ink: #c3b9d2;
+  --muted: #6e6382;
+
+  --line: #2d1f47;
+  --line-strong: #493273;
+
+  /* Acentos */
+  --accent: #00f0ff;       /* Cian eléctrico */
+  --accent-neon: #ff007f;  /* Rosa / Magenta */
+  --accent-green: #39ff14; /* Verde neón */
+
   --accent-soft: rgba(0, 240, 255, 0.1);
   --code-bg: #160f29;
-  
-  /* Sombras duras estilo interfaz retro/Vaporwave (Solid Shadows) */
+
+  /* Sombras sólidas */
   --shadow: 4px 4px 0px #ff007f;
   --shadow-hover: 6px 6px 0px #00f0ff;
-  
-  font-family: "JetBrains Mono", "JetBrainsMono Nerd Font", ui-monospace, monospace;
+
+  font-family: "JetBrains Mono", "JetBrainsMono Nerd Font",
+    ui-monospace, monospace;
 }
+
 
 * {
   box-sizing: border-box;
@@ -474,17 +481,35 @@ a {
   font-size: 1rem;
 }
 
+
+/* Jerarquía de títulos Markdown */
 .content h1,
 .content h2,
 .content h3 {
   margin: 2rem 0 0.75rem;
-  color: var(--ink);
   line-height: 1.22;
 }
 
-.content h1 { font-size: 1.5rem; color: var(--accent); }
-.content h2 { font-size: 1.3rem; border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; }
-.content h3 { font-size: 1.1rem; color: var(--soft-ink); }
+/* # Título principal — Cian eléctrico */
+.content h1 {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+/* ## Título secundario — Verde neón */
+.content h2 {
+  font-size: 1.3rem;
+  color: var(--accent-green);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.3rem;
+}
+
+/* ### Título terciario — Blanco brillante */
+.content h3 {
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
 
 .content a {
   color: var(--accent);
