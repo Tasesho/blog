@@ -24,6 +24,7 @@ cat > "$file" <<EOF
 title: ${title}
 date: ${date}
 description:
+thumbnail: 
 ---
 
 # ${title}

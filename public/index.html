@@ -1,27 +1,35 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>~blog.tasedev.me</title>
     <meta name="description" content="Bitacora tecnica personal sobre Linux, backend, Docker, homelab y aprendizaje autodidacta.">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="styles-v5.css?v=20260622">
   </head>
   <body>
     <header class="site-header">
       <nav class="site-nav" aria-label="Navegacion principal">
-        <a href="https://tasedev.me">volver</a>
-        <a href="https://github.com/Tasesho" rel="noreferrer" target="_blank">github</a>
+        <div class="site-links-left">
+          <a class="brand" href="#/" aria-label="Volver al blog">~blog.tasedev.me</a>
+        </div>
+        <div class="nav-search">
+          <i class="ri-search-line nav-search-icon" aria-hidden="true"></i>
+          <input id="nav-entry-search" class="nav-search-input" type="search" autocomplete="off" placeholder="Search an entry by keywords" aria-label="Buscar entradas" />
+        </div>
+        <div class="site-links-right">
+          <a class="icon-link" href="https://github.com/Tasesho" rel="noreferrer" target="_blank" aria-label="GitHub" title="Abrir GitHub"><i class="ri-github-fill"></i></a>
+          <a class="icon-link" href="https://tasedev.me" rel="noreferrer" target="_blank" aria-label="Volver a tasedev.me" title="Ir a tasedev.me"><i class="ri-arrow-left-right-line"></i></a>
+        </div>
       </nav>
-      <a class="brand" href="#/" aria-label="Volver al blog">
-        <span>~blog.tasedev.me</span>
-      </a>
     </header>
 
     <main class="shell">
       <div id="app" aria-live="polite"></div>
     </main>
 
+    <script src="vendor/marked.min.js" defer></script>
     <script src="app.js" defer></script>
   </body>
 </html>

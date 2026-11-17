@@ -1,0 +1,9 @@
+tunnel: 1ffc30f2-d28f-4a5b-b96d-8a2f213167b7
+
+credentials-file: /etc/cloudflared/credentials.json
+
+ingress:
+  - hostname: blog.tasedev.me
+    service: http://tase-blog:80
+
+  - service: http_status:404

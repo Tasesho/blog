@@ -1,6 +1,8 @@
 const appEl = document.querySelector("#app");
 
 let entries = [];
+let searchQuery = "";
+let scrollRaf = null;
 
 init();
 
@@ -8,11 +10,35 @@ async function init() {
   try {
     entries = await fetchJson("/entries/index.json");
     window.addEventListener("hashchange", router);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    const navInput = document.querySelector("#nav-entry-search");
+    if (navInput) {
+      navInput.value = searchQuery;
+      navInput.addEventListener("input", (event) => {
+        searchQuery = event.target.value.trim();
+        if (window.location.hash.startsWith("#/post/")) {
+          window.location.hash = "#/";
+        } else {
+          renderHome();
+        }
+      });
+    }
+
     router();
   } catch (error) {
     renderStatus("No se pudo cargar el indice de entradas.");
     console.error(error);
   }
+}
+
+function handleScroll() {
+  if (scrollRaf) return;
+  scrollRaf = requestAnimationFrame(() => {
+    const offset = Math.min(window.scrollY, 220) * 0.14;
+    document.documentElement.style.setProperty("--scroll-offset", `${offset}px`);
+    scrollRaf = null;
+  });
 }
 
 // Router minimo basado en hash:
@@ -51,21 +77,50 @@ function renderHome() {
     return;
   }
 
+  const visibleEntries = filterEntries(entries, searchQuery);
+  const resultsLabel = searchQuery
+    ? `<p class="search-summary">Resultados para "${escapeHtml(searchQuery)}": ${visibleEntries.length}</p>`
+    : "";
+
   appEl.innerHTML = `
     <section class="home-view" aria-labelledby="entries-title">
       <header class="home-hero">
         <h1>BLog<span aria-hidden="true">_</span></h1>
-        <p>Ingresa a una entrada para leer.</p>
+        <p>Selecciona una entrada para leer o busca por título/descripcion.</p>
       </header>
+      ${resultsLabel}
       <header class="view-header">
-        <p class="kicker">entries/${entries.length}</p>
+        <p class="kicker">entries/${visibleEntries.length}</p>
         <h1 id="entries-title">posts</h1>
       </header>
-      <div class="post-grid">
-        ${entries.map(renderPostCard).join("")}
-      </div>
+      ${visibleEntries.length ? `
+        <div class="post-grid">
+          ${visibleEntries.map(renderPostCard).join("")}
+        </div>
+      ` : `
+        <div class="empty-state">
+          <p>No hay entradas que coincidan con "${escapeHtml(searchQuery)}".</p>
+        </div>
+      `}
     </section>
   `;
+
+  const navInput = document.querySelector("#nav-entry-search");
+  if (navInput) {
+    navInput.value = searchQuery;
+  }
+}
+
+function filterEntries(items, query) {
+  if (!query) return items;
+  const normalized = query.toLowerCase();
+  return items.filter((entry) => {
+    return (
+      entry.title.toLowerCase().includes(normalized) ||
+      entry.description.toLowerCase().includes(normalized) ||
+      entry.slug.toLowerCase().includes(normalized)
+    );
+  });
 }
 
 function renderPostCard(entry) {
@@ -133,13 +188,15 @@ function renderStatus(message) {
 }
 
 async function fetchJson(path) {
-  const response = await fetch(path);
+  const cacheBuster = `?v=${new Date().getTime()}`;
+  const response = await fetch(path + cacheBuster);
   if (!response.ok) throw new Error(`HTTP ${response.status} al cargar ${path}`);
   return response.json();
 }
 
 async function fetchText(path) {
-  const response = await fetch(path);
+  const cacheBuster = `?v=${new Date().getTime()}`;
+  const response = await fetch(path + cacheBuster);
   if (!response.ok) throw new Error(`HTTP ${response.status} al cargar ${path}`);
   return response.text();
 }
@@ -155,8 +212,19 @@ function splitFrontMatter(markdown) {
 }
 
 // Renderer Markdown deliberadamente pequeno: cubre lo que este blog usa hoy
-// sin meter dependencias ni convertir esto en un CMS.
+// Markdown rendering using marked with GitHub Flavored Markdown support.
 function renderMarkdown(markdown) {
+  if (typeof marked !== "undefined") {
+    marked.setOptions({
+      gfm: true,
+      breaks: true,
+      headerIds: false,
+      mangle: false,
+      smartypants: false,
+    });
+    return marked.parse(markdown);
+  }
+
   const lines = markdown.replace(/\r\n/g, "\n").split("\n");
   const html = [];
   let paragraph = [];
@@ -177,14 +245,13 @@ function renderMarkdown(markdown) {
   };
 
   for (const line of lines) {
-    if (line.trim().startsWith("```")) {
+    if (line.trim().startsWith("```") ) {
       if (inCode) {
         html.push(`<pre><code>${escapeHtml(code.join("\n"))}</code></pre>`);
         code = [];
         inCode = false;
       } else {
         flushParagraph();
-        flushList();
         inCode = true;
       }
       continue;
@@ -225,6 +292,7 @@ function renderMarkdown(markdown) {
       continue;
     }
 
+    flushList();
     paragraph.push(line.trim());
   }
 
