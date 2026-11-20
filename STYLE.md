@@ -1,128 +1,225 @@
-# Blog Writing and Markdown Style
+# Blog Markdown Formatting Style Guide
 
-This guide describes the conventions used by the entries in this blog. The writing should remain personal and conversational while still being easy to read and technically useful.
+## 1. Purpose
 
-## File format
+This document defines the formatting rules for transforming raw blog entries (`.raw.md`) into properly formatted Markdown articles.
 
-Every entry is a Markdown file inside `entries/`. Its filename starts with the publication date and uses lowercase words separated by hyphens:
+The goal is to improve readability, visual hierarchy, and consistency while preserving the author's original writing style and personality.
 
-```text
-YYYY-MM-DD-short-entry-title.md
-```
+The raw document is the source of truth. The AI must act as a Markdown formatter, not as a co-author or editor.
 
-Each entry begins with YAML front matter delimited by `---`:
+## 2. Core Rules
+
+**Content preservation is the highest priority.**
+
+- Do not remove, summarize, rewrite, or replace any original content.
+- Do not correct grammar, spelling, punctuation, or vocabulary unless explicitly requested.
+- Do not translate the text.
+- Do not change the author's tone, personality, humor, expressions, or wording.
+- Preserve informal expressions, slang, kaomojis, emoticons, and intentional grammatical mistakes.
+- Do not invent explanations, examples, technical details, or conclusions.
+- Do not remove repetitive sentences just because they seem unnecessary.
+- Preserve all URLs, references, commands, configuration examples, and code snippets.
+- Do not change technical values, paths, commands, or configuration syntax.
+
+When in doubt, preserve the original text exactly.
+
+## 3. General Writing Style
+
+The blog should feel like a personal technical journal rather than formal documentation.
+
+The writing style is:
+
+- **Personal:** First-person explanations and experiences are welcome.
+- **Informal:** Conversational language is preferred over academic or corporate language.
+- **Technical:** Technical concepts should remain understandable without oversimplifying them.
+- **Honest:** Include mistakes, frustrations, experiments, and personal opinions.
+- **Expressive:** Preserve humor, personality, and informal expressions.
+
+Avoid making the article sound like:
+- Corporate documentation.
+- Academic reports.
+- Marketing material.
+- Generic AI-generated tutorials.
+- Formal technical manuals.
+
+The author's personality should remain visible throughout the article.
+
+## 4. Markdown Structure
+
+Use Markdown formatting to organize the article without changing its content.
+
+### Headings
+
+Use a consistent hierarchy:
+
+- `#` for the main article title or major sections.
+- `##` for secondary sections.
+- `###` for subsections.
+- `####` only when genuinely necessary.
+
+Avoid excessive heading fragmentation. Not every paragraph needs a heading.
+
+### Paragraphs
+
+- Keep paragraphs reasonably short.
+- Separate different ideas with blank lines.
+- Do not split a paragraph unnecessarily.
+- Preserve the original order of ideas.
+
+### Emphasis
+
+Use formatting selectively:
+
+- `**Bold**` for important concepts, tools, technical names, and key statements.
+- `*Italic*` for subtle emphasis, personal remarks, or terminology.
+- `~~Strikethrough~~` only when the author is expressing a correction, joke, or deliberate contradiction.
+
+Do not bold entire paragraphs or overuse emphasis.
+
+### Lists
+
+Use unordered lists for collections of related items.
+
+Use ordered lists when the original content describes a sequence of steps.
+
+Do not turn ordinary paragraphs into lists just to make the article look more structured.
+
+### Blockquotes and Callouts
+
+Use blockquotes for:
+
+- Direct quotations from official documentation.
+- Relevant external statements.
+- Short personal reflections that deserve visual emphasis.
+
+Use simple Markdown blockquotes for warnings, notes, and important information:
+
+> **NOTE:** Additional information that helps the reader understand a particular section.
+
+> **IMPORTANT:** Information that should not be overlooked.
+
+> **WARNING:** A relevant risk or potentially destructive action.
+
+Only introduce a callout when the original text supports it. Never invent warnings or additional information.
+
+## 5. Technical Content
+
+Technical examples must remain intact and easy to copy.
+
+### Code Blocks
+
+Always use fenced code blocks with the appropriate language identifier when known.
+
+Examples:
 
 ```yaml
----
-title: Entry title
-date: 2026-01-01
-description: A short description of the entry.
-thumbnail: /assets/thumbnails/example.jpg
----
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
 ```
 
-Use these fields consistently:
-
-- `title`: the entry's title.
-- `date`: the publication date in `YYYY-MM-DD` format.
-- `description`: a short summary suitable for an entry listing.
-- `thumbnail`: a local asset path or a complete image URL. Leave it empty when no thumbnail is available.
-
-## Document structure
-
-- Begin the body with an H1 (`#`) matching the entry's visible title.
-- Use H2 (`##`) headings for major sections and H3 (`###`) headings for subsections.
-- Use H4 (`####`) only for a subsection that genuinely belongs under an H3.
-- Keep headings descriptive, natural, and consistent in capitalization.
-- Add a blank line between paragraphs, headings, lists, tables, quotes, and code blocks.
-- Organize longer essays into a clear progression: introduction, context or explanation, main experience/tutorial, and final thoughts.
-- Finish personal or tutorial-style entries with a closing section such as `## Final Thoughts`, `## Wrapping Up`, or `## Final thoughts`.
-
-Avoid adding a heading for every short paragraph. A section should contain enough related material to justify its heading.
-
-## Voice and prose
-
-- Write in the first person when describing personal experiences, opinions, projects, or mistakes.
-- Keep the tone informal, warm, and honest. Greetings, humor, expressive wording, and emoticons are part of the blog's personality when they fit the entry.
-- Explain technical ideas in plain language before using specialized terminology.
-- Prefer short paragraphs, usually one idea at a time.
-- Preserve the author's meaning, opinions, and personal voice when proofreading.
-- Use AI for spelling, grammar, vocabulary, clarity, and Markdown recommendations; AI should not invent experiences or change the author's point of view.
-- Use standard English spelling and grammar unless an intentionally informal phrase is part of the voice.
-
-## Emphasis and inline formatting
-
-- Use **bold** for important concepts, software names, technologies, keywords, and terms being introduced.
-- Use *italics* for light emphasis, titles of works, or an intentionally stressed phrase.
-- Use inline code for commands, filenames, paths, configuration keys, package names, flags, URLs used as examples, and literal values: `` `localhost:8080` ``.
-- Use links with descriptive text rather than displaying a long raw URL:
-
-```markdown
-[Arch Wiki](https://wiki.archlinux.org/)
+```bash
+docker compose up -d
 ```
 
-Do not bold or italicize entire paragraphs. Combine formatting only when it improves comprehension.
-
-## Code and technical examples
-
-Use fenced code blocks for commands, configuration, directory trees, and multi-line output. Add a language identifier when one is known:
-
-```sh
-docker compose up --build
+```json
+{
+  "example": true
+}
 ```
 
-Use `sh` for shell commands, `text` for directory trees or terminal output, and the appropriate language for configuration or source code. Explain what an example does before or after the block, and avoid presenting unexplained commands.
+Use:
+- `bash` for shell commands.
+- `yaml` for YAML configuration.
+- `json` for JSON.
+- `toml` for TOML.
+- `java` for Java.
+- `python` for Python.
+- `html` for HTML.
+- `css` for CSS.
+- `javascript` for JavaScript.
+- `text` when the language is unknown or the content is plain text.
 
-## Tables and lists
+Do not modify code, commands, paths, IP addresses, ports, or configuration values.
 
-Use a table when readers need to compare multiple items or properties. Give the table a header row and keep each cell concise:
+### Inline Code
 
-```markdown
-| Tool | Purpose |
-| --- | --- |
-| Docker | Runs services in containers |
-| Nginx | Serves or routes web traffic |
-```
+Use backticks for:
+- File names: `docker-compose.yml`
+- Directories: `/home/user/homepage`
+- Commands: `docker compose up -d`
+- Variables: `HOMEPAGE_ALLOWED_HOSTS`
+- Ports: `3000`
+- Configuration keys: `showStats`
 
-Use unordered lists for related items without a required order. Use numbered lists for procedures, rankings, or steps that must be followed in sequence. Keep list items parallel in grammar and add a short explanation when an item is not self-explanatory.
+### Tables
 
-## Quotes and callouts
+Use Markdown tables when they genuinely improve the presentation of structured information.
 
-Use blockquotes for dialogue, memorable wording, quotations, or a short clarification:
+Good use cases:
+- Comparing tools or services.
+- Explaining configuration parameters.
+- Listing file purposes.
+- Summarizing technical specifications.
 
-```markdown
-> "Read the documentation first."
-```
+Do not convert normal prose into tables. Never omit details to make a table shorter.
 
-Use GitHub-style alert callouts when a point needs special attention:
+## 6. Links and References
 
-```markdown
-> [!NOTE]
-> This is useful context for understanding the example.
+Preserve all original links.
 
-> [!WARNING]
-> This action can delete data or make a system harder to recover.
+Use descriptive link text when the original document already provides enough context.
 
-> [!IMPORTANT]
-> This step is required for the setup to work.
-```
+Example:
 
-Choose the callout type according to its purpose. Keep callouts short and do not use them for ordinary paragraphs.
+[Homepage – Services](https://gethomepage.dev/configs/services/)
 
-## Separators and spacing
+Do not invent URLs, references, documentation links, or citations.
 
-Use `---` between large, intentionally distinct parts of an essay when a heading alone is not enough. Do not use horizontal rules between every section. Keep one blank line around separators and all other block elements.
+## 7. Article Layout
 
-## Final review checklist
+When appropriate, organize articles using this general structure:
 
-Before publishing an entry, check that:
+1. Introduction — A personal opening explaining the topic or problem.
+2. Context — Why the topic matters and what motivated the author.
+3. Main content — Technical explanations, experiments, configurations, or experiences.
+4. Observations — Results, problems, opinions, or lessons learned.
+5. Final thoughts — A short personal conclusion.
 
-- the filename, date, and front matter are valid;
-- the title, description, and thumbnail are present or intentionally empty;
-- the body has a clear H1 and logical heading hierarchy;
-- paragraphs are readable and technical terms are explained;
-- code blocks have suitable language labels;
-- tables and lists are used only where they improve clarity;
-- links, commands, paths, and filenames are formatted correctly;
-- warnings or important instructions use an appropriate callout;
-- the author's experience and voice remain unchanged after proofreading.
+This is a guideline, not a mandatory template. Do not force sections that do not exist in the original document.
+
+## 8. Visual Consistency
+
+Keep the formatting clean and relatively minimal.
+
+- Use horizontal rules (`---`) to separate major parts when appropriate.
+- Avoid excessive emojis and decorative symbols.
+- Preserve existing kaomojis and emoticons.
+- Avoid unnecessary nested lists.
+- Avoid excessive blockquotes.
+- Avoid adding headings to every paragraph.
+- Maintain consistent heading levels and code formatting.
+
+The final result should be readable in a standard Markdown renderer.
+
+## 9. Final Output Requirements
+
+When processing a `.raw.md` file:
+
+1. Read the entire original document.
+2. Preserve every original sentence and piece of information.
+3. Apply Markdown formatting according to this guide.
+4. Keep the original order and structure unless a formatting adjustment is necessary.
+5. Return the complete formatted Markdown document.
+6. Do not include explanations, summaries, or commentary outside the formatted document.
+
+**Never silently remove content.**
+
+If a section appears incomplete, confusing, or technically incorrect, preserve it as written rather than attempting to fix it.
+
+## 10. Processing Instruction
+
+The following instruction should be used alongside this style guide whenever an AI processes a raw article:
+
+> Format the provided raw Markdown document according to this `STYLES.md` guide. Your task is strictly limited to Markdown formatting and structural organization. Do not rewrite, proofread, translate, summarize, correct, or remove any content. Preserve the author's original wording, personality, technical details, examples, and links. Return the entire formatted Markdown document and nothing else.
