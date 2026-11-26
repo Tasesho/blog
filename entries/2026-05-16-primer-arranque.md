@@ -3,6 +3,7 @@ title: Who Am I
 date: 2026-05-16
 description: Small talk about me :)
 thumbnail: /assets/thumbnails/yo.png
+labels: [personal, introduction]
 ---
 
 # Who Am I

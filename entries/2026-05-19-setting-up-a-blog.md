@@ -3,6 +3,7 @@ title: Setting up a Blog
 date: 2026-05-19
 description: How to set a self-hosted blog.
 thumbnail: https://i.imgur.com/Xa1hHVX.png?auto=format&fit=crop&w=900&q=80
+labels: [blog, self-hosting]
 ---
 
 # Setting Up a Blog

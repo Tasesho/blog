@@ -3,6 +3,7 @@ title: Music Rabbit Holes
 date: 2026-11-19
 description: Talking about Music!
 thumbnail: /assets/thumbnails/touhou1.jpg
+labels: [music, Touhou, rhythm games]
 ---
 
 # Music Rabbit Holes

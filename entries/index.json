@@ -4,6 +4,11 @@
     "date": "2026-11-19",
     "description": "Talking about Music!",
     "thumbnail": "/assets/thumbnails/touhou1.jpg",
+    "labels": [
+      "music",
+      "Touhou",
+      "rhythm games"
+    ],
     "slug": "music-rabbit-holes",
     "file": "2026-11-19-music-rabbit-holes.md",
     "readingTime": "7 min"
@@ -13,6 +18,11 @@
     "date": "2026-11-16",
     "description": "Monitoring is Important too!",
     "thumbnail": "https://static.wikia.nocookie.net/vocaloid/images/7/7a/Monitoring.jpg/revision/latest?cb=20241123115450",
+    "labels": [
+      "homelab",
+      "monitoring",
+      "self-hosting"
+    ],
     "slug": "managing-my-services-with-homepage",
     "file": "2026-11-16-managing-my-services-with-homepage.md",
     "readingTime": "7 min"
@@ -22,6 +32,11 @@
     "date": "2026-11-01",
     "description": "This time I bring you my experience on Garuda Linux :)",
     "thumbnail": "/assets/thumbnails/garuda.jpg",
+    "labels": [
+      "Linux",
+      "Garuda",
+      "desktop"
+    ],
     "slug": "i-swear-this-is-the-last-distro",
     "file": "2026-11-01-i-swear-this-is-the-last-distro.md",
     "readingTime": "9 min"
@@ -31,6 +46,11 @@
     "date": "2026-08-20",
     "description": "Cloudflare is really a nice tool...",
     "thumbnail": "/assets/thumbnails/cloudflare.jpg",
+    "labels": [
+      "homelab",
+      "networking",
+      "Cloudflare"
+    ],
     "slug": "how-i-use-a-reverse-proxy-to-manage-my-homelab",
     "file": "2026-08-20-how-i-use-a-reverse-proxy-to-manage-my-homelab.md",
     "readingTime": "12 min"
@@ -40,6 +60,10 @@
     "date": "2026-08-01",
     "description": "What an OTP feels like.",
     "thumbnail": "/assets/thumbnails/hq720.jpg",
+    "labels": [
+      "personal",
+      "reflections"
+    ],
     "slug": "life-of-an-otp",
     "file": "2026-08-01-life-of-an-otp.md",
     "readingTime": "6 min"
@@ -49,6 +73,11 @@
     "date": "2026-07-30",
     "description": "Local Media Server As a new way of Streaming Service",
     "thumbnail": "/assets/thumbnails/tbn.jpg",
+    "labels": [
+      "homelab",
+      "streaming",
+      "self-hosting"
+    ],
     "slug": "why-i-quit-netflix-and-built-my-own-streaming-service",
     "file": "2026-07-30-why-i-quit-netflix-and-built-my-own-streaming-service.md",
     "readingTime": "9 min"
@@ -58,6 +87,10 @@
     "date": "2026-06-20",
     "description": "small talk about how i convert my old phone onto a DAC for offline music.",
     "thumbnail": "/assets/thumbnails/images.jpg",
+    "labels": [
+      "music",
+      "Android"
+    ],
     "slug": "why-i-turned-my-phone-into-a-walkman",
     "file": "2026-06-20-why-i-turned-my-phone-into-a-walkman.md",
     "readingTime": "15 min"
@@ -67,6 +100,10 @@
     "date": "2026-05-24",
     "description": "Small reflections about human connections.",
     "thumbnail": "/assets/thumbnails/aaa.webp",
+    "labels": [
+      "personal",
+      "reflections"
+    ],
     "slug": "conexiones-y-vinculos",
     "file": "2026-05-24-conexiones-y-vinculos.md",
     "readingTime": "7 min"
@@ -76,6 +113,10 @@
     "date": "2026-05-19",
     "description": "How to set a self-hosted blog.",
     "thumbnail": "https://i.imgur.com/Xa1hHVX.png?auto=format&fit=crop&w=900&q=80",
+    "labels": [
+      "blog",
+      "self-hosting"
+    ],
     "slug": "setting-up-a-blog",
     "file": "2026-05-19-setting-up-a-blog.md",
     "readingTime": "6 min"
@@ -85,6 +126,10 @@
     "date": "2026-05-18",
     "description": "How I introduced myself into linux",
     "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSE-7pwAKFIFJ0VuM3O-SC-WOxYiFA61adug&s",
+    "labels": [
+      "Linux",
+      "personal"
+    ],
     "slug": "my-linuxperience",
     "file": "2026-05-18-my-linuxperience.md",
     "readingTime": "13 min"
@@ -94,6 +139,10 @@
     "date": "2026-05-16",
     "description": "Small talk about me :)",
     "thumbnail": "/assets/thumbnails/yo.png",
+    "labels": [
+      "personal",
+      "introduction"
+    ],
     "slug": "primer-arranque",
     "file": "2026-05-16-primer-arranque.md",
     "readingTime": "3 min"

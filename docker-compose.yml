@@ -5,9 +5,24 @@ services:
     restart: unless-stopped
     ports:
       - "8080:80"
-    networks:
-      - proxy
+    depends_on:
+      - visitor-counter
+    networks: [proxy, app]
+
+  visitor-counter:
+    build:
+      context: .
+      dockerfile: Dockerfile.counter
+    restart: unless-stopped
+    volumes:
+      - visitor-data:/data
+    networks: [app]
+
+volumes:
+  visitor-data:
 
 networks:
   proxy:
     external: true
+  app:
+    internal: true

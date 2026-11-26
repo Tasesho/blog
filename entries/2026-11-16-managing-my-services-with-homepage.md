@@ -3,6 +3,7 @@ title: Managing My services With Homepage
 date: 2026-11-16
 description: Monitoring is Important too!
 thumbnail: https://static.wikia.nocookie.net/vocaloid/images/7/7a/Monitoring.jpg/revision/latest?cb=20241123115450
+labels: [homelab, monitoring, self-hosting]
 ---
 
 # Managing My services With Homepage

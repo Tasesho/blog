@@ -3,6 +3,7 @@ title: Connections and Bonds
 date: 2026-05-24
 description: Small reflections about human connections.
 thumbnail: /assets/thumbnails/aaa.webp
+labels: [personal, reflections]
 ---
 
 # Relationships and Bonds

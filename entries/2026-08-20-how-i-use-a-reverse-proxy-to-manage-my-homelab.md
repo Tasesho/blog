@@ -7,6 +7,7 @@ date: 2026-08-20
 description: Cloudflare is really a nice tool...
 
 thumbnail: /assets/thumbnails/cloudflare.jpg
+labels: [homelab, networking, Cloudflare]
 
 ---
 

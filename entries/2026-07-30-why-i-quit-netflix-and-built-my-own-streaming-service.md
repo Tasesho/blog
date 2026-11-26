@@ -3,6 +3,7 @@ title: Why I Quit Netflix and Built My Own Streaming Service
 date: 2026-07-30
 description: Local Media Server As a new way of Streaming Service
 thumbnail: /assets/thumbnails/tbn.jpg
+labels: [homelab, streaming, self-hosting]
 ---
 
 # Streamming in 2026

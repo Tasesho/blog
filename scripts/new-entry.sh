@@ -25,6 +25,7 @@ title: ${title}
 date: ${date}
 description:
 thumbnail: 
+labels: []
 ---
 
 # ${title}

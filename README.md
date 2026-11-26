@@ -17,6 +17,7 @@ Blog personal/devlog minimalista, filesystem-first y self-hosted.
 - Sin CMS.
 - Sin panel admin.
 - Docker + Nginx para servir archivos estaticos.
+- Un contador pequeno guarda las visitas en un volumen persistente de Docker.
 
 ## Estructura
 
@@ -25,7 +26,10 @@ blog/
 ├── entries/        # posts markdown e index.json
 ├── public/         # frontend estatico
 ├── scripts/        # herramientas locales
+├── visitor-counter/ # servicio local para contar visitas
 ├── Dockerfile
+├── Dockerfile.counter
+├── nginx.conf
 └── docker-compose.yml
 ```
 
@@ -45,13 +49,13 @@ node scripts/build-index.js
 
 ## Desarrollo local
 
-Como el navegador usa `fetch`, sirve la carpeta con un servidor local:
+Para probar el sitio y el contador juntos, inicia ambos servicios con Docker:
 
 ```sh
-python3 -m http.server 8080
+docker compose up --build
 ```
 
-Abre `http://localhost:8080/public/` para probarlo sin Docker.
+Abre `http://localhost:8080`. El contador suma como maximo una visita por navegador cada 24 horas; el total se conserva en el volumen `visitor-data`.
 
 ## Docker
 

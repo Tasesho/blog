@@ -3,6 +3,7 @@ title: I Swear This is the Last Distro
 date: 2026-11-01
 description: This time I bring you my experience on Garuda Linux :)
 thumbnail: /assets/thumbnails/garuda.jpg
+labels: [Linux, Garuda, desktop]
 ---
 
 # I Swear This is the Last Distro

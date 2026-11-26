@@ -24,6 +24,7 @@ const posts = fs
       date: frontMatter.date || dateFromFile,
       description: frontMatter.description || "",
       thumbnail: frontMatter.thumbnail || "",
+      labels: frontMatter.labels || [],
       slug,
       file,
       readingTime: readingTime(body),
@@ -40,19 +41,42 @@ function readFrontMatter(markdown) {
   const end = markdown.indexOf("\n---", 3);
   if (end === -1) return {};
 
-  return markdown
-    .slice(3, end)
-    .trim()
-    .split("\n")
-    .reduce((meta, line) => {
-      const separator = line.indexOf(":");
-      if (separator === -1) return meta;
+  const meta = {};
+  let listKey = null;
 
-      const key = line.slice(0, separator).trim();
-      const value = line.slice(separator + 1).trim().replace(/^["']|["']$/g, "");
-      meta[key] = value;
-      return meta;
-    }, {});
+  for (const line of markdown.slice(3, end).trim().split("\n")) {
+    const listItem = line.match(/^\s+-\s+(.+)$/);
+    if (listItem && listKey) {
+      meta[listKey].push(unquote(listItem[1].trim()));
+      continue;
+    }
+
+    const separator = line.indexOf(":");
+    if (separator === -1) continue;
+
+    const key = line.slice(0, separator).trim();
+    const value = line.slice(separator + 1).trim();
+    listKey = null;
+
+    if (key === "labels") {
+      if (!value) {
+        meta.labels = [];
+        listKey = key;
+      } else if (value.startsWith("[") && value.endsWith("]")) {
+        meta.labels = value.slice(1, -1).split(",").map((label) => unquote(label.trim())).filter(Boolean);
+      } else {
+        meta.labels = [unquote(value)];
+      }
+    } else {
+      meta[key] = unquote(value);
+    }
+  }
+
+  return meta;
+}
+
+function unquote(value) {
+  return value.replace(/^["']|["']$/g, "");
 }
 
 function readingTime(markdown) {

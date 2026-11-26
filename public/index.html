@@ -6,7 +6,7 @@
     <title>~blog.tasedev.me</title>
     <meta name="description" content="Bitacora tecnica personal sobre Linux, backend, Docker, homelab y aprendizaje autodidacta.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
-    <link rel="stylesheet" href="/styles-v5.css?v=20261116">
+    <link rel="stylesheet" href="/styles-v5.css?v=20261126-persona3">
   </head>
   <body>
     <header class="site-header">
@@ -19,6 +19,7 @@
           <input id="nav-entry-search" class="nav-search-input" type="search" autocomplete="off" placeholder="Search an entry by keywords" aria-label="Buscar entradas" />
         </div>
         <div class="site-links-right">
+          <div class="visitor-counter" aria-label="Total visitors"><span>VISITORS</span><strong id="visitor-count" aria-live="polite">…</strong></div>
           <a class="icon-link" href="https://github.com/Tasesho" rel="noreferrer" target="_blank" aria-label="GitHub" title="Abrir GitHub"><i class="ri-github-fill"></i></a>
           <a class="icon-link" href="https://tasedev.me" rel="noreferrer" target="_blank" aria-label="Volver a tasedev.me" title="Ir a tasedev.me"><i class="ri-arrow-left-right-line"></i></a>
         </div>
@@ -28,6 +29,14 @@
     <main class="shell">
       <div id="app" aria-live="polite"></div>
     </main>
+
+    <footer class="site-footer">
+      <span class="footer-mark" aria-hidden="true">&gt;_</span>
+      <span>Developed by <a href="https://tasedev.me" target="_blank" rel="noreferrer">Tase</a> · © 2026</span>
+      <button class="back-to-top" id="back-to-top" type="button">Back to top <span aria-hidden="true">↑</span></button>
+    </footer>
+
+    <div id="custom-cursor" aria-hidden="true"><span></span></div>
 
     <script src="vendor/marked.min.js" defer></script>
     <script src="app.js" defer></script>

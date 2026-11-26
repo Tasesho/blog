@@ -3,6 +3,7 @@ title: Why I Turned My Phone Into a Walkman~
 date: 2026-06-20
 description: small talk about how i convert my old phone onto a DAC for offline music.
 thumbnail: /assets/thumbnails/images.jpg
+labels: [music, Android]
 ---
 
 # Why I Turned My Phone Into a Walkman~

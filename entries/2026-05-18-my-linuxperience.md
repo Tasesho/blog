@@ -3,6 +3,7 @@ title: My Linuxperience
 date: 2026-05-18
 description: How I introduced myself into linux
 thumbnail: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSE-7pwAKFIFJ0VuM3O-SC-WOxYiFA61adug&s
+labels: [Linux, personal]
 ---
 
 # My Linuxperience

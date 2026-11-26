@@ -3,6 +3,7 @@ title: Life of an OTP
 date: 2026-08-01
 description: What an OTP feels like.
 thumbnail: /assets/thumbnails/hq720.jpg
+labels: [personal, reflections]
 ---
 
 Hewwo people!
